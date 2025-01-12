@@ -1,0 +1,278 @@
+*{
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'RobotoMonoBold';
+  src: url(/media/fonts/Roboto/static/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(/media/fonts/Roboto/static/Roboto_Condensed-Medium.ttf);
+}
+
+body{
+  overflow-x: hidden;
+  background-color: #ffffff;
+}
+
+.container { 
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.4fr 1.3fr 1.3fr;
+  grid-auto-columns: 1fr;
+  row-gap: 5px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "nav nav"
+    "photo1 text1"
+    "text2 photo2";
+}
+
+.photo1 { grid-area: photo1; 
+  background-image: url(/media/image/latest-1144558482.jpg);
+  background-size: cover;
+  background-position:center;
+  height: 100vh;
+}
+
+.text1 { grid-area: text1; 
+  background-color: rgb(153, 73, 73);
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-family: 'RobotoMonoBold';
+}
+
+.text1 p{
+  font-size: 2.5em;
+  margin: 15px;
+}
+
+.photo2 { grid-area: photo2; 
+  background-image: url(/media/image/UserView-2-3692012067.jpg);
+  background-size: cover;
+  background-position:center;
+  height: 100vh;
+}
+
+
+
+.text2 { grid-area: text2; 
+  background-color: rgb(9, 11, 41);
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  font-family: 'RobotoMonoBold';
+}
+
+.text2 p{
+  font-size: 2.5em;
+  margin: 15px;
+  color: #ffffff;
+}
+
+/***********/
+/* NAV-BAR */
+/***********/
+nav { grid-area: nav; 
+  background-color: #111111;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+} 
+
+  nav ul{
+    display: flex;
+    gap: 3.2rem;
+  }
+
+  .mission{
+    color: #ffff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .home{
+    color: #ffff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .name{
+    color: #ffff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .tech{
+    color: #ffff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+
+  .name::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Start at the center */
+    bottom: 0;
+    transform: translateX(-50%); /* Center-align the underline */
+    width: 0%; /* No underline initially */
+    height: 2px; /* Thickness of the underline */
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .name:hover::after {
+    width: 100%; /* Expand outward symmetrically */
+  }
+
+  .tech::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Start at the center */
+    bottom: 0;
+    transform: translateX(-50%); /* Center-align the underline */
+    width: 0%; /* No underline initially */
+    height: 2px; /* Thickness of the underline */
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .tech:hover::after {
+    width: 100%; /* Expand outward symmetrically */
+  }
+
+  .home::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Start at the center */
+    bottom: 0;
+    transform: translateX(-50%); /* Center-align the underline */
+    width: 0%; /* No underline initially */
+    height: 2px; /* Thickness of the underline */
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .home:hover::after {
+    width: 100%; /* Expand outward symmetrically */
+  }
+
+
+  .name:hover{
+    color: #dfdede;
+  }
+
+  .tech:hover{
+    color: #dfdede;
+  }
+
+  .home:hover{
+    color: #dfdede;
+  }
+
+  .mission:hover{
+    color: #dfdede;
+  }
+
+  .mission{
+    text-decoration: underline;
+  }
+
+  а:link,
+  a:visited{
+    color: #ffff;
+  }
+
+  @media (max-width: 768px) {
+    /* Navigation bar adjustments */
+    nav {
+      flex-direction: column;
+      height: auto;
+      padding: 10px 0;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .mission, .home, .name, .tech {
+      font-size: 24px; /* Adjust font size for smaller screens */
+    }
+  
+    /* Container layout adjustments */
+    .container {
+      grid-template-columns: 1fr; /* Single-column layout */
+      grid-template-rows: auto; 
+      grid-template-areas:
+        "nav"
+        "photo1"
+        "text1"
+        "photo2"
+        "text2";
+      height: auto; /* Adjust height for better display */
+      row-gap: 10px; /* Add spacing between rows */
+    }
+  
+    .photo1, .photo2 {
+      height: 50vh; /* Reduce height of photo sections */
+    }
+  
+    .text1, .text2 {
+      font-size: 1.5em; /* Reduce font size for better readability */
+      padding: 20px; /* Add padding for spacing */
+    }
+  
+    .text1 p, .text2 p {
+      font-size: 1.2em; /* Adjust text size for mobile */
+    }
+  }
+  
+  /* For devices with a width of 480px or smaller */
+  @media (max-width: 480px) {
+    /* Navigation links font size for very small screens */
+    .mission, .home, .name, .tech {
+      font-size: 20px;
+    }
+  
+    /* Container layout refinements */
+    .photo1, .photo2 {
+      height: 40vh; /* Further reduce photo section heights */
+    }
+  
+    .text1, .text2 {
+      font-size: 1.2em; /* Adjust font size for readability */
+      padding: 15px; /* Further refine spacing */
+    }
+  
+    .text1 p, .text2 p {
+      font-size: 1em; /* Smaller text size for narrow screens */
+    }
+  }
