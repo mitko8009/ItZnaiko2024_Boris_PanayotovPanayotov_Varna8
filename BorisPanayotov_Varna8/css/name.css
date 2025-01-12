@@ -1,0 +1,251 @@
+*{
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'RobotoMonoBold';
+  src: url(/media/fonts/Roboto/static/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(/media/fonts/Roboto/static/Roboto_Condensed-Medium.ttf);
+}
+
+body{
+  overflow-x: hidden;
+  background-color: #ffffff;
+}
+
+
+
+/***********/
+/* NAV-BAR */
+/***********/
+nav { grid-area: nav; 
+  background-color: #111111;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+} 
+
+  nav ul{
+    display: flex;
+    gap: 3.2rem;
+  }
+
+  .mission{
+    color: #ffff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .home{
+    color: #ffff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .name{
+    color: #ffff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .tech{
+    color: #ffff;
+    font-family: 'Roboto';
+    text-decoration: none;
+    position: relative;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+
+  .tech::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Start at the center */
+    bottom: 0;
+    transform: translateX(-50%); /* Center-align the underline */
+    width: 0%; /* No underline initially */
+    height: 2px; /* Thickness of the underline */
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .tech:hover::after {
+    width: 100%; /* Expand outward symmetrically */
+  }
+
+  .mission::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Start at the center */
+    bottom: 0;
+    transform: translateX(-50%); /* Center-align the underline */
+    width: 0%; /* No underline initially */
+    height: 2px; /* Thickness of the underline */
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .mission:hover::after {
+    width: 100%; /* Expand outward symmetrically */
+  }
+
+  .home::after {
+    content: "";
+    position: absolute;
+    left: 50%; /* Start at the center */
+    bottom: 0;
+    transform: translateX(-50%); /* Center-align the underline */
+    width: 0%; /* No underline initially */
+    height: 2px; /* Thickness of the underline */
+    background-color: #ffffff;
+    transition: width 0.3s ease-in-out;
+  }
+
+  .home:hover::after {
+    width: 100%; /* Expand outward symmetrically */
+  }
+
+
+  .name:hover{
+    color: #dfdede;
+  }
+
+  .tech:hover{
+    color: #dfdede;
+  }
+
+  .home:hover{
+    color: #dfdede;
+  }
+
+  .mission:hover{
+    color: #dfdede;
+  }
+
+  .name{
+    text-decoration: underline;
+  }
+
+  а:link,
+  a:visited{
+    color: #d6d6d6;
+  }
+
+  /**********/
+  /*THE MAIN*/
+  /**********/
+
+  .container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "deco info";
+    height: 90vh;
+  }
+  
+  .deco { grid-area: deco; 
+    background-image: url(/media/image/AdobeStock_577025112-scaled-3950724193.jpeg);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .info { grid-area: info; 
+    background-color: #191919;
+    color: #dfdede;
+    font-size: 2em;
+    text-align: center;
+  }
+  
+  .info p{
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    /* Navigation bar adjustments */
+    nav {
+      flex-direction: column;
+      height: auto;
+      padding: 10px 0;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .mission, .home, .name, .tech {
+      font-size: 24px; /* Slightly smaller text size for navigation links */
+    }
+  
+    /* Container layout adjustments */
+    .container {
+      grid-template-columns: 1fr; /* Single-column layout */
+      grid-template-rows: auto;
+      grid-template-areas:
+        "deco"
+        "info";
+      height: auto; /* Adjust container height for better mobile display */
+    }
+  
+    .deco {
+      height: 50vh; /* Reduce the height of the decorative section */
+      background-size: cover;
+      background-position: center;
+    }
+  
+    .info {
+      font-size: 1.5em; /* Adjust font size for readability */
+      padding: 20px;
+    }
+  
+    .info p {
+      font-size: 1.2em; /* Smaller text size for mobile */
+      margin: 10px 0;
+    }
+  }
+  
+  /* For devices with a width of 480px or smaller */
+  @media (max-width: 480px) {
+    /* Navigation links font size for very small screens */
+    .mission, .home, .name, .tech {
+      font-size: 20px;
+    }
+  
+    /* Container layout refinements */
+    .deco {
+      height: 40vh; /* Further reduce decorative section height */
+    }
+  
+    .info {
+      font-size: 1.2em; /* Smaller text size for narrow screens */
+    }
+  
+    .info p {
+      font-size: 1em; /* Further reduce font size for very small screens */
+    }
+  }
